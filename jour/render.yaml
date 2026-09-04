@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: 22bet-explorer
+    runtime: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: python scraper_22bet.py --serve
+    envVars:
+      - key: 22BET_DELAY
+        value: "0.35"
+      - key: PYTHON_VERSION
+        value: "3.11.0"
+    healthCheckPath: /health
